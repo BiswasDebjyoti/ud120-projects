@@ -1,4 +1,6 @@
 #!/usr/bin/python
+from sklearn import svm
+from sklearn.metrics import accuracy_score
 
 """ 
     This is the code to accompany the Lesson 2 (SVM) mini-project.
@@ -19,11 +21,18 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-
-
-
 #########################################################
 ### your code goes here ###
+
+
+
+svf = svm.SVC(kernel="linear")
+
+svf.fit(features_train,labels_train)
+pred= svf.predict(features_test)
+accuracy = accuracy_score(labels_test, pred)
+
+print accuracy
 
 #########################################################
 
