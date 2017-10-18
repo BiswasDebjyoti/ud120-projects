@@ -21,6 +21,8 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+count =0
+
 #########################################################
 ### your code goes here ###
 
@@ -30,10 +32,14 @@ labels_train = labels_train[:len(labels_train)/100]
 svf = svm.SVC(C=10000,kernel="rbf")
 
 svf.fit(features_train,labels_train)
-pred= svf.predict(features_test[50])
-#accuracy = accuracy_score(labels_test, pred)
+pred= svf.predict(features_test)
+accuracy = accuracy_score(labels_test, pred)
 
-print pred
+for item in labels_test:
+    #if item == 1:
+     #   count =count +1
+    count = count +1
+print count
 
 #########################################################
 
