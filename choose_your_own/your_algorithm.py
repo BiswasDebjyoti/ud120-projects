@@ -1,5 +1,7 @@
 #!/usr/bin/python
-from sklearn.ensemble import RandomForestClassifier
+#from sklearn.ensemble import RandomForestClassifier
+#from sklearn.naive_bayes import GaussianNB
+from sklearn import svm
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
@@ -22,7 +24,7 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 ### visualization code (prettyPicture) to show you the decision boundary
 
 #cl=AdaBoostClassifier(n_estimators=35,learning_rate=0.4)
-cl=RandomForestClassifier(min_samples_split=200)
+cl=svm.SVC(C=1000000,kernel="rbf")
 t0= time()
 cl.fit(features_train,labels_train)
 print "training time:", round(time()-t0,3),"s"
