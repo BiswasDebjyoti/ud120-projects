@@ -23,7 +23,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 clf = tree.DecisionTreeClassifier(min_samples_split=40)
 clf.fit(features_train,labels_train)
-
+#print len(features_train)
 print accuracy_score(clf.predict(features_test),labels_test)
 
 
