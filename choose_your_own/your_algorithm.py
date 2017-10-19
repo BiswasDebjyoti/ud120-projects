@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
@@ -21,7 +21,8 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
-cl=AdaBoostClassifier(n_estimators=35,learning_rate=0.4)
+#cl=AdaBoostClassifier(n_estimators=35,learning_rate=0.4)
+cl=RandomForestClassifier(min_samples_split=200)
 t0= time()
 cl.fit(features_train,labels_train)
 print "training time:", round(time()-t0,3),"s"
