@@ -26,8 +26,8 @@ count =0
 #########################################################
 ### your code goes here ###
 
-features_train = features_train[:len(features_train)/100] 
-labels_train = labels_train[:len(labels_train)/100] 
+#features_train = features_train[:len(features_train)/100] 
+#labels_train = labels_train[:len(labels_train)/100] 
 
 svf = svm.SVC(C=10000,kernel="rbf")
 
