@@ -21,12 +21,12 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
-clf=AdaBoostClassifier(learning_rate=10)
+cl=AdaBoostClassifier(learning_rate=10)
 t0= time()
-clf.fit(features_train,labels_train)
+cl.fit(features_train,labels_train)
 print "training time:", round(time()-t0,3),"s"
 t1=time()
-pred=clf.predict(features_test)
+pred=cl.predict(features_test)
 print "testing time:", round(time()-t1,3),"s"
 print 'accuracy= ', accuracy_score(pred, labels_test)
 ########################################################
@@ -42,19 +42,8 @@ plt.show()
 ################################################################################
 
 
-
-
-
-
-
-
-
-'''
-
 try:
-    prettyPicture(clf, features_test, labels_test)
+    prettyPicture(cl, features_test, labels_test)
 except NameError:
     print "Problems"
     pass
-
-'''
